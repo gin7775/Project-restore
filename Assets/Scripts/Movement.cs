@@ -5,7 +5,7 @@ using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.UIElements;
 
-public class MovementCamera : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     private Transform transform;
     private float horizontalSpeed = 10f;
