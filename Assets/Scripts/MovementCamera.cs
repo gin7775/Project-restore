@@ -33,14 +33,22 @@ public class MovementCamera : MonoBehaviour
 
         mouseDistance = Vector2.ClampMagnitude(mouseDistance, 1f);
 
-        transform.Rotate(-mouseDistance.y * lookRateSpeed * Time.deltaTime, mouseDistance.x * lookRateSpeed * Time.deltaTime,0f , Space.Self);
+        float posRot = -mouseDistance.y * lookRateSpeed * Time.deltaTime;
+        float negRot = mouseDistance.x* lookRateSpeed *Time.deltaTime;
+
+        Debug.Log("x " + posRot);
+        Debug.Log("y" + negRot);
+
+        transform.Rotate(posRot, negRot, 0f, Space.Self);
 
 
-       /* activeStrafeSpeed = Mathf.Lerp(activeStrafeSpeed, Input.GetAxisRaw("Horizontal") + strafeSpeed,strafeAcceleration * Time.deltaTime);
-        activeHoverSpeed = Mathf.Lerp( activeHoverSpeed,Input.GetAxisRaw("Hover") + hoverSpeed,hoverAcceleration * Time.deltaTime);*/
+       
+
+        activeStrafeSpeed = Mathf.Lerp(activeStrafeSpeed, Input.GetAxisRaw("Horizontal") + strafeSpeed,strafeAcceleration * Time.deltaTime);
+        activeHoverSpeed = Mathf.Lerp( activeHoverSpeed,Input.GetAxisRaw("Vertical") + hoverSpeed,hoverAcceleration * Time.deltaTime);
 
         transform.position += transform.forward * forwardSpeed * Time.deltaTime;
-       // transform.position += (transform.right * activeStrafeSpeed * Time.deltaTime) + (transform.up * activeHoverSpeed * Time.deltaTime);
+        transform.position += (transform.right * activeStrafeSpeed * Time.deltaTime) + (transform.up * activeHoverSpeed * Time.deltaTime);
 
     }
 }
