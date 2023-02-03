@@ -8,8 +8,8 @@ using UnityEngine.UIElements;
 public class Movement : MonoBehaviour
 {
     private Transform transform;
-    private float horizontalSpeed = 10f;
-    private float verticalSpeed = 10f;
+    private float horizontalSpeed;
+    private float verticalSpeed;
     [SerializeField] float speed = 10f;
 
     Rigidbody rb;
@@ -25,21 +25,29 @@ public class Movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        rb.velocity = Vector3.forward;
 
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            transform.position = new Vector3(transform.position.x, 0, (transform.position.z + 0.1f) * Time.deltaTime);
+        }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(transform.position - new Vector3(transform.position.x + speed, transform.position.y, transform.position.z)), speed * Time.deltaTime);
-            //timeCount = timeCount + Time.deltaTime;
-            //transform.position = new Vector3(transform.position.x * Time.deltaTime + 10, transform.position.y, transform.position.z);
+            transform.position = new Vector3((transform.position.x + 0.1f) * Time.deltaTime, 0, transform.position.z);
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            transform.position = new Vector3(transform.position.x, 0, (transform.position.z - 0.1f) * Time.deltaTime);
         }
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(transform.position - new Vector3(transform.position.x - speed, transform.position.y, transform.position.z)), speed * Time.deltaTime);
+            transform.position = new Vector3((transform.position.x - 0.1f) * Time.deltaTime, 0, transform.position.z);
         }
+
     }
+
 }
