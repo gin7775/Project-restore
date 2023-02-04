@@ -39,16 +39,15 @@ public class MovementCamera : MonoBehaviour
         float negRot = mouseDistance.x* lookRateSpeed *Time.deltaTime;
         float posRot = 0;
        
-        transform.Rotate(posRot, negRot, 0f, Space.Self);
+       // transform.Rotate(posRot, negRot, 0f, Space.Self);
 
-        //LimitRoot();
 
         activeStrafeSpeed = Mathf.Lerp(activeStrafeSpeed, Input.GetAxisRaw("Horizontal") * strafeSpeed,strafeAcceleration * Time.deltaTime);
         activeHoverSpeed = Mathf.Lerp( activeHoverSpeed,Input.GetAxisRaw("Vertical") * hoverSpeed,hoverAcceleration * Time.deltaTime);
 
         transform.position += transform.forward * forwardSpeed * Time.deltaTime;
-        transform.position += (transform.right * activeStrafeSpeed * Time.deltaTime) + (transform.up * activeHoverSpeed * Time.deltaTime);
-
+        transform.position += transform.up * activeHoverSpeed * Time.deltaTime;
+        transform.Rotate(Vector3.up, Input.GetAxisRaw("Horizontal") * hoverSpeed * Time.deltaTime);
     }
 
     public void LimitRoot()
@@ -59,8 +58,8 @@ public class MovementCamera : MonoBehaviour
         playerEulerAngles.y = (playerEulerAngles.y > 180) ? playerEulerAngles.y - 360 : playerEulerAngles.y;
         playerEulerAngles.y = Mathf.Clamp(playerEulerAngles.y, rootLimit * -1, rootLimit);
 
-        playerEulerAngles.x = (playerEulerAngles.x > 180) ? playerEulerAngles.x - 360 : playerEulerAngles.x;
-        playerEulerAngles.x = Mathf.Clamp(playerEulerAngles.x, rootLimit * -1, rootLimit);
+       /* playerEulerAngles.x = (playerEulerAngles.x > 180) ? playerEulerAngles.x - 360 : playerEulerAngles.x;
+        playerEulerAngles.x = Mathf.Clamp(playerEulerAngles.x, rootLimit * -1, rootLimit);*/
 
         transform.rotation = Quaternion.Euler(playerEulerAngles);
     }
