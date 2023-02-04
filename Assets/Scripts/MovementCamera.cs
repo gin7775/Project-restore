@@ -4,6 +4,7 @@ using System.Threading;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 using UnityEngine.UIElements;
+using Cinemachine;
 
 public class MovementCamera : MonoBehaviour
 {
@@ -62,8 +63,8 @@ public class MovementCamera : MonoBehaviour
             transform.position += transform.up * activeHoverSpeed * Time.deltaTime;
             transform.Rotate(Vector3.up, Input.GetAxisRaw("Horizontal") * strafeSpeed * 2 * Time.deltaTime);
         }
-        
 
+        Camera.main.GetComponentInChildren<CinemachineVirtualCamera>();
         Debug.DrawRay(caster.transform.position, caster.transform.up * -1 * rayDistance, Color.red);
 
         if (Physics.Raycast(caster.transform.position, caster.transform.up * -1, out hit, rayDistance))
