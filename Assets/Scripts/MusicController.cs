@@ -10,12 +10,15 @@ public class MusicController : MonoBehaviour
     void Start()
     {
         musicManager = GetComponent<MusicManager>();
-        menuFX = GetComponent<AudioSource>();
+        menuFX = musicManager.RecieveMenuFX1();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(musicManager == null)
+        {
+            musicManager = GetComponent<MusicManager>();
+        }
     }
 }

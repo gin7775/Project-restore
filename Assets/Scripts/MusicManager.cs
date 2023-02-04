@@ -8,7 +8,7 @@ public class MusicManager : MonoBehaviour
 {
     public AudioSource[] tracks;
     public AudioSource wind;
-    public AudioSource menufx1,
+    public AudioSource menufx1;
     public enum Instrumentos
     {
         Piano, //0
@@ -52,7 +52,7 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
