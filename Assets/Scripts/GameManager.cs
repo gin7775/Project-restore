@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    //private int fatuoCasa;
-    //private int fatuoCripta;
+    [SerializeField] int lucesCasa;
+    [SerializeField] int lucesCripta;
     [SerializeField] int lucesIglesia;
 
-    //private bool isCollectedfatuoCasa;
-    //private bool isCollectedfatuoCripta;
+    [SerializeField] bool isCollectedLucesCasa;
+    [SerializeField] bool isCollectedLucesCripta;
     [SerializeField] bool isCollectedLucesIglesia;
 
     // Start is called before the first frame update
@@ -26,17 +26,65 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (lucesCasa <= 0 && !isCollectedLucesCasa)
+        {
+            isCollectedLucesCasa = true;
+            finishCasa();
+        }
+
+        if (lucesCripta <= 0 && !isCollectedLucesCripta)
+        {
+            isCollectedLucesCripta = true;
+            finishCripta();
+        }
+
         if (lucesIglesia <= 0 && !isCollectedLucesIglesia)
         {
             isCollectedLucesIglesia = true;
             finishIglesia();
         }
 
+        if (isCollectedLucesCasa)
+        {
+            if (GameObject.FindGameObjectsWithTag("luzCasa") != null)
+            {
+                lucesCasa = GameObject.FindGameObjectsWithTag("luzCasa").Length;
+            }
+        }
+
+        if (isCollectedLucesCripta)
+        {
+            if (GameObject.FindGameObjectsWithTag("luzCripta") != null)
+            {
+                lucesCripta = GameObject.FindGameObjectsWithTag("luzCripta").Length;
+            }
+        }
+
+    }
+
+    public void collectarLuzCasa()
+    {
+        lucesCasa--;
+    }
+
+    public void collectarLuzCripta()
+    {
+        lucesCripta--;
     }
 
     public void collectarLuzIglesia()
     {
         lucesIglesia--;
+    }
+
+    private void finishCasa()
+    {
+        Debug.Log("isCollectedLucesIglesia " + isCollectedLucesIglesia);
+    }
+
+    private void finishCripta()
+    {
+        Debug.Log("isCollectedLucesIglesia " + isCollectedLucesIglesia);
     }
 
     private void finishIglesia()
