@@ -11,7 +11,8 @@ public class MovementCamera : MonoBehaviour
     private float activeStrafeSpeed, activeHoverSpeed;
     public float fowardAcceleration = 2.5f, strafeAcceleration=2f, hoverAcceleration=2f;
     public float rootLimit;
-    
+    public Camera camara;
+
     public float lookRateSpeed = 90f;
     private Vector2 lookInput, screenCenter, mouseDistance;
 
@@ -36,7 +37,7 @@ public class MovementCamera : MonoBehaviour
 
         float posRot = -mouseDistance.y * lookRateSpeed * Time.deltaTime;
         float negRot = mouseDistance.x* lookRateSpeed *Time.deltaTime;
-        
+
         
         transform.Rotate(posRot, negRot, 0f, Space.Self);
 
