@@ -9,7 +9,7 @@ public class MusicController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        musicManager = GetComponent<MusicManager>();
+        musicManager = FindObjectOfType<MusicManager>();
         menuFX = musicManager.RecieveMenuFX1();
     }
 
@@ -18,7 +18,11 @@ public class MusicController : MonoBehaviour
     {
         if(musicManager == null)
         {
-            musicManager = GetComponent<MusicManager>();
+            musicManager = GetComponent<MusicManager>();    
         }
+    }
+    public void PlayMenuFX()
+    {
+        menuFX.Play();
     }
 }
