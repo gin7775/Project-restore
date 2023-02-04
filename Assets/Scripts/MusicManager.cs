@@ -17,10 +17,24 @@ public class MusicManager : MonoBehaviour
         Pads //5
     }
     Instrumentos instrumento;
+    private static MusicManager _instance;
+    public  static MusicManager Instance
+    {
+        get
+        {
+            if(_instance is null)
+            {
+                _instance = new MusicManager();
+            }
+            return _instance;
+        }
+    }
+
+   
 
     private void Awake()
     {
-       
+       _instance = this;
         for (int i = 0; i < tracks.Length; i++)
         {
             tracks[i].mute = true;
@@ -29,7 +43,7 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
