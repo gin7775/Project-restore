@@ -18,24 +18,24 @@ public class ScripterController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        other.isTrigger = false;
         Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == "luzCasa")
         {
-            gameManager.collectarLuzCasa();
-            Destroy(other.gameObject.GetComponentInParent<Transform>().parent.gameObject);
+            other.gameObject.GetComponent<Animator>().SetTrigger("Explosion");
+            //Destroy(other.gameObject.GetComponentInChildren<Transform>().gameObject);
             Debug.Log("Hey, lo tienes luzCasa");
         }
 
         if (other.gameObject.tag == "luzCripta")
         {
-            gameManager.collectarLuzCripta();
-            Destroy(other.gameObject.GetComponentInParent<Transform>().parent.gameObject);
+            other.gameObject.GetComponent<Animator>().SetTrigger("Explosion");
+            //Destroy(other.gameObject.GetComponentInChildren<Transform>().gameObject);
             Debug.Log("Hey, lo tienes luzCripta");
         }
 
         if (other.gameObject.tag == "luzIglesia")
         {
-            gameManager.collectarLuzIglesia();
             other.gameObject.GetComponent<Animator>().SetTrigger("Explosion");
             //Destroy(other.gameObject.GetComponentInParent<Transform>().parent.gameObject);
             Debug.Log("Hey, lo tienes luzIglesia");

@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] inactiveHouseGameObjects;
     public GameObject[] inactiveCriptGameObjects;
+    public GameObject[] inactiveChurchGameObjects;
 
     // Start is called before the first frame update
     void Start()
@@ -22,47 +23,24 @@ public class GameManager : MonoBehaviour
         lucesCasa = 5;
         lucesCripta = 5;
         lucesIglesia = 5;
-        if (GameObject.FindGameObjectsWithTag("luzIglesia") != null)
-        {
-            lucesIglesia = GameObject.FindGameObjectsWithTag("luzIglesia").Length;
-        }
         isCollectedLucesCasa = false;
         isCollectedLucesCripta = false;
         isCollectedLucesIglesia = false;
+
+        lucesCripta = activateChildCount(inactiveCriptGameObjects);
     }
 
     void Update()
     {
+
+        if (isCollectedLucesCripta)
+        {
+            lucesIglesia = activateChildCount(inactiveChurchGameObjects);
+        }
+
         if (isCollectedLucesIglesia)
         {
-            if (GameObject.FindGameObjectsWithTag("luzCasa") != null)
-            {
-                inactiveHouseGameObjects = GameObject.FindGameObjectsWithTag("luzCasa");
-                foreach (GameObject gameObject in inactiveHouseGameObjects)
-                {
-                    Debug.Log(gameObject.GetComponent<Transform>().position);
-                    gameObject.SetActive(true);
-                }
-                lucesCasa = GameObject.FindGameObjectsWithTag("luzCasa").Length;
-            }
-        }
-
-        if (isCollectedLucesCasa)
-        {
-            if (GameObject.FindGameObjectsWithTag("luzCripta") != null)
-            {
-                lucesCripta = GameObject.FindGameObjectsWithTag("luzCripta").Length;
-                foreach (GameObject gameObject in inactiveCriptGameObjects)
-                {
-                    gameObject.SetActive(true);
-                }
-            }
-        }
-
-        if (lucesCasa <= 0 && !isCollectedLucesCasa)
-        {
-            isCollectedLucesCasa = true;
-            finishCasa();
+            lucesCasa = activateChildCount(inactiveHouseGameObjects);
         }
 
         if (lucesCripta <= 0 && !isCollectedLucesCripta)
@@ -77,21 +55,27 @@ public class GameManager : MonoBehaviour
             finishIglesia();
         }
 
-    }
+        if (lucesCasa <= 0 && !isCollectedLucesCasa)
+        {
+            isCollectedLucesCasa = true;
+            finishCasa();
+        }
 
-    public void collectarLuzCasa()
-    {
-        lucesCasa--;
     }
-
-    public void collectarLuzCripta()
+    private int activateChildCount(GameObject[] array)
     {
-        lucesCripta--;
-    }
-
-    public void collectarLuzIglesia()
-    {
-        lucesIglesia--;
+        int contador = 0;
+        Debug.Log("lenght " + array.Length);
+        foreach (GameObject go in array)
+        {
+            if (go != null) {
+                Debug.Log("lenght " + array.Length);
+                contador = array.Length;
+                Debug.Log("contador " + contador);
+                go.transform.GetChild(0).gameObject.SetActive(true);
+            }
+        }
+        return contador;
     }
 
     private void finishCasa()
