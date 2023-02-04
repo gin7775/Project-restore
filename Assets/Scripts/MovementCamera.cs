@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class MovementCamera : MonoBehaviour
 {
     public float forwardSpeed, strafeSpeed, hoverSpeed, actualHover;
-    private float activeStrafeSpeed, activeHoverSpeed;
+    private float activeStrafeSpeed, activeHoverSpeed,highSpeed,lowSpeed,initialSpeed;
     public float fowardAcceleration = 2.5f, strafeAcceleration=2f, hoverAcceleration=2f;
     public float rootLimit,rayDistance=2;
     public GameObject camara;
@@ -21,6 +21,9 @@ public class MovementCamera : MonoBehaviour
     void Start()
     {
         actualHover = strafeSpeed;
+        initialSpeed = forwardSpeed;
+        highSpeed = initialSpeed + 5;
+        lowSpeed = initialSpeed - 5;
         screenCenter.x = Screen.width * .5f;
         screenCenter.y = Screen.height * .5f;
     }
@@ -51,7 +54,7 @@ public class MovementCamera : MonoBehaviour
 
         transform.position += transform.forward * forwardSpeed * Time.deltaTime;
         transform.position += transform.up * activeHoverSpeed * Time.deltaTime;
-        transform.Rotate(Vector3.up, Input.GetAxisRaw("Horizontal") * strafeSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.up, Input.GetAxisRaw("Horizontal") * strafeSpeed * 2 * Time.deltaTime);
 
         Debug.DrawRay(caster.transform.position, caster.transform.up * -1 * rayDistance, Color.red);
 
@@ -64,20 +67,25 @@ public class MovementCamera : MonoBehaviour
             strafeSpeed = actualHover;
         }
 
+        if (Input.GetKey(KeyCode.Space))
+        {
+            forwardSpeed = lowSpeed;
+            
+        }
+       
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            forwardSpeed = highSpeed;
+
+
+        }
+        if (Input.GetKeyUp(KeyCode.Space)|| Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            forwardSpeed = initialSpeed;
+
+        }
     }
 
-    public void LimitRoot()
-    {
-
-        Vector3 playerEulerAngles = transform.rotation.eulerAngles;
-        
-        playerEulerAngles.y = (playerEulerAngles.y > 180) ? playerEulerAngles.y - 360 : playerEulerAngles.y;
-        playerEulerAngles.y = Mathf.Clamp(playerEulerAngles.y, rootLimit * -1, rootLimit);
-
-       /* playerEulerAngles.x = (playerEulerAngles.x > 180) ? playerEulerAngles.x - 360 : playerEulerAngles.x;
-        playerEulerAngles.x = Mathf.Clamp(playerEulerAngles.x, rootLimit * -1, rootLimit);*/
-
-        transform.rotation = Quaternion.Euler(playerEulerAngles);
-    }
+    
 
 }
