@@ -12,24 +12,39 @@ public class ScripterController : MonoBehaviour
 
     private void Start()
     {
-        fuegoFatuoContainer = 0;
+        fuegoFatuoContainer = 6;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject.tag);
+        if (other.gameObject.tag == "luzCasa")
+        {
+            gameManager.collectarLuzCasa();
+            Destroy(other.gameObject.GetComponentInParent<Transform>().parent.gameObject);
+            Debug.Log("Hey, lo tienes luzCasa");
+        }
+
+        if (other.gameObject.tag == "luzCripta")
+        {
+            gameManager.collectarLuzCripta();
+            Destroy(other.gameObject.GetComponentInParent<Transform>().parent.gameObject);
+            Debug.Log("Hey, lo tienes luzCripta");
+        }
+
         if (other.gameObject.tag == "luzIglesia")
         {
             gameManager.collectarLuzIglesia();
             Destroy(other.gameObject.GetComponentInParent<Transform>().parent.gameObject);
             Debug.Log("Hey, lo tienes luzIglesia");
         }
-        if (other.gameObject.tag == "fatuoIglesia")
+
+        if (other.gameObject.tag == "fatuo")
         {
             fuegoFatuoContainer += 1;
             Destroy(other.gameObject.GetComponentInParent<Transform>().parent.gameObject);
-            Debug.Log("Hey, lo tienes fatuoIglesia " + fuegoFatuoContainer);
+            Debug.Log("Hey, lo tienes fatuo " + fuegoFatuoContainer);
         }
     }
 
