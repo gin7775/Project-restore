@@ -16,7 +16,7 @@ public class ScripterController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.isTrigger = false;
+       // other.isTrigger = false;
         Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == "luzCasa")
         {

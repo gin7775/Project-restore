@@ -4779,37 +4779,9 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3610727915806478364, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
-      propertyPath: m_LookaheadTime
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3610727915806478364, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
-      propertyPath: m_CenterOnActivate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3610727915806478364, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
-      propertyPath: m_LookaheadIgnoreY
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3610727915806478364, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
-      propertyPath: m_LookaheadSmoothing
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3610727916377211680, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
       propertyPath: m_Name
       value: Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 3610727916377211682, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
-      propertyPath: field of view
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 3610727916377211682, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
-      propertyPath: far clip plane
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 3610727916377211682, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
-      propertyPath: near clip plane
-      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 3610727916377211683, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
       propertyPath: m_RootOrder
@@ -4855,34 +4827,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3610727916563844061, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3610727916563844061, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3610727916563844061, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3610727916563844061, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3610727916563844061, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3610727916563844061, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3610727916563844061, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
     - target: {fileID: 3610727916563844062, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
       propertyPath: m_Follow
       value: 
@@ -4891,37 +4835,9 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 1378825939}
-    m_RemovedComponents:
-    - {fileID: 3610727915806478355, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
+    m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
---- !u!1 &2035603416 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3610727915806478353, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
-  m_PrefabInstance: {fileID: 2035603415}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2035603422
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2035603416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BindingMode: 5
-  m_FollowOffset: {x: 0, y: 3.3782845, z: -9.852129}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
-  m_AngularDampingMode: 0
-  m_PitchDamping: 0
-  m_YawDamping: 0
-  m_RollDamping: 0
-  m_AngularDamping: 0
 --- !u!1001 &2074202357
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4930,10 +4846,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2074202365, guid: 27d528db27211924bbdb057bc0ddf896, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 744740358643374792, guid: 27d528db27211924bbdb057bc0ddf896, type: 3}
       propertyPath: m_Name
       value: player
@@ -4986,10 +4898,6 @@ PrefabInstance:
       propertyPath: camara
       value: 
       objectReference: {fileID: 621766715}
-    - target: {fileID: 744740358643374838, guid: 27d528db27211924bbdb057bc0ddf896, type: 3}
-      propertyPath: fatuos.Array.size
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 27d528db27211924bbdb057bc0ddf896, type: 3}
