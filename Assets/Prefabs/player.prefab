@@ -330,7 +330,6 @@ GameObject:
   - component: {fileID: 2074202365}
   - component: {fileID: 2074202359}
   - component: {fileID: 1378825946}
-  - component: {fileID: 173215819934675903}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -440,13 +439,6 @@ MonoBehaviour:
   - {fileID: 1450337737}
   - {fileID: 1002214428}
   - {fileID: 168003369}
-  fatuos:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   caster: {fileID: 1506231396}
   fuegoFatuoContainer: 0
   lookRateSpeed: 25
@@ -475,7 +467,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744740358643374792}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1
   m_Height: 3
@@ -556,17 +548,3 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!136 &173215819934675903
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 744740358643374792}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 1.1945846
-  m_Height: 3
-  m_Direction: 1
-  m_Center: {x: 0.055309772, y: 0, z: 0.13927484}

@@ -1,14 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
     public AudioSource[] tracks;
     public AudioSource wind;
-    public AudioSource menufx1;
     public enum Instrumentos
     {
         Piano, //0
@@ -20,22 +18,15 @@ public class MusicManager : MonoBehaviour
     }
     Instrumentos instrumento;
     private static MusicManager _instance;
-    public static MusicManager Instance
+    public  static MusicManager Instance
     {
         get
         {
-            return _instance; 
-        }
-        private set
-        {
-            if (_instance is null)
+            if(_instance is null)
             {
-                _instance = value;
+                _instance = new MusicManager();
             }
-            else
-            {
-                Destroy(value.gameObject);
-            }
+            return _instance;
         }
     }
 
@@ -43,7 +34,7 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
-       Instance = this;
+       _instance = this;
         for (int i = 0; i < tracks.Length; i++)
         {
             tracks[i].mute = true;
@@ -115,13 +106,5 @@ public class MusicManager : MonoBehaviour
 
             
         }
-    }
-
-    public AudioSource RecieveMenuFX1()
-    {
-        AudioSource fx;
-        fx = menufx1;
-
-        return fx;
     }
 }

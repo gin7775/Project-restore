@@ -48,7 +48,7 @@ public class MovementCamera : MonoBehaviour
 
         //float posRot = -mouseDistance.y * lookRateSpeed * Time.deltaTime;
         float negRot = mouseDistance.x* lookRateSpeed *Time.deltaTime;
-        //float posRot = 0;
+        float posRot = 0;
 
         // transform.Rotate(posRot, negRot, 0f, Space.Self);
 
@@ -64,7 +64,7 @@ public class MovementCamera : MonoBehaviour
             transform.Rotate(Vector3.up, Input.GetAxisRaw("Horizontal") * strafeSpeed * 2 * Time.deltaTime);
         }
 
-        
+        Camera.main.GetComponentInChildren<CinemachineVirtualCamera>();
         Debug.DrawRay(caster.transform.position, caster.transform.up * -1 * rayDistance, Color.red);
 
         if (Physics.Raycast(caster.transform.position, caster.transform.up * -1, out hit, rayDistance))
@@ -79,26 +79,19 @@ public class MovementCamera : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && fuegoFatuoContainer >= 0)
         {
             forwardSpeed = lowSpeed;
-            Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().m_Lens.FieldOfView = Mathf.Lerp(Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().m_Lens.FieldOfView,50,0.02f);
-
+            
         }
-
+       
         if (Input.GetKey(KeyCode.LeftShift) && fuegoFatuoContainer >= 0)
         {
             forwardSpeed = highSpeed;
-            Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().m_Lens.FieldOfView = Mathf.Lerp(Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().m_Lens.FieldOfView, 70, 0.02f);
+
 
         }
         if (Input.GetKeyUp(KeyCode.Space)|| Input.GetKeyUp(KeyCode.LeftShift))
         {
-            Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().m_Lens.FieldOfView = Mathf.Lerp(Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().m_Lens.FieldOfView, 60, 0.02f);
-
-            if (fuegoFatuoContainer > 0)
-            {
-                fuegoFatuoContainer--;
-                Destroy(fatuos[fuegoFatuoContainer].gameObject);
-
-            }
+            fuegoFatuoContainer--;
+            Destroy(fatuos[fuegoFatuoContainer].gameObject);
             forwardSpeed = initialSpeed;
 
         }
@@ -113,7 +106,7 @@ public class MovementCamera : MonoBehaviour
             other.transform.rotation = firePos[fuegoFatuoContainer].rotation;
             fatuos[fuegoFatuoContainer] = other.transform;
             other.transform.SetParent(firePos[fuegoFatuoContainer]);
-            fuegoFatuoContainer++;
+            fuegoFatuoContainer += 1;
 
             
             Debug.Log("Hey, lo tienes fatuo " + fuegoFatuoContainer);
