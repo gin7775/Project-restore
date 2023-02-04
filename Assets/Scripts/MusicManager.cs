@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,7 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
-        for(int i = 0; i < tracks.Length; i++)
+        for (int i = 0; i < tracks.Length; i++)
         {
             tracks[i].mute = true;
         }
@@ -27,26 +28,65 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+    
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.Z))
+        {
+            unMuteAudio(Instrumentos.Piano);
+        }
+        if (Input.GetKey(KeyCode.X))
+        {
+            unMuteAudio(Instrumentos.Tom);
+        }
+        if (Input.GetKey(KeyCode.C))
+        {
+            unMuteAudio(Instrumentos.Flauta);
+        }
+        if (Input.GetKey(KeyCode.V))
+        {
+            unMuteAudio(Instrumentos.Melody);
+        }
+        if (Input.GetKey(KeyCode.B))
+        {
+            unMuteAudio(Instrumentos.Bajo);
+        }
+        if (Input.GetKey(KeyCode.N))
+        {
+            unMuteAudio(Instrumentos.Pads);
+        }
+      
+
     }
 
     public void unMuteAudio(Instrumentos instrumento)
     {
+        int audio = Convert.ToInt32(instrumento);
         switch (instrumento)
         {
+            
             case Instrumentos.Piano:
+                tracks[audio].mute = false;
                 break;
             case Instrumentos.Tom:
+                tracks[audio].mute = false;
                 break;
             case Instrumentos.Flauta:
+                tracks[audio].mute = false;
                 break;
             case Instrumentos.Melody:
+                tracks[audio].mute = false;
+                break;
+            case Instrumentos.Bajo:
+                tracks[audio].mute = false;
+                break;
+            case Instrumentos.Pads:
+                tracks[audio].mute = false;
+                break;
+            default:
                 break;
 
             
