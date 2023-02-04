@@ -36,13 +36,7 @@ public class MovementCamera : MonoBehaviour
         float posRot = -mouseDistance.y * lookRateSpeed * Time.deltaTime;
         float negRot = mouseDistance.x* lookRateSpeed *Time.deltaTime;
 
-        Debug.Log("x " + posRot);
-        Debug.Log("y" + negRot);
-
         transform.Rotate(posRot, negRot, 0f, Space.Self);
-
-
-       
 
         activeStrafeSpeed = Mathf.Lerp(activeStrafeSpeed, Input.GetAxisRaw("Horizontal") + strafeSpeed,strafeAcceleration * Time.deltaTime);
         activeHoverSpeed = Mathf.Lerp( activeHoverSpeed,Input.GetAxisRaw("Vertical") + hoverSpeed,hoverAcceleration * Time.deltaTime);
