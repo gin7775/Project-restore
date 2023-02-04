@@ -107,8 +107,7 @@ public class MusicManager : MonoBehaviour
             
         }
     }
-<<<<<<< Updated upstream
-=======
+
 
     public void UnmuteAll()
     {
@@ -125,5 +124,5 @@ public class MusicManager : MonoBehaviour
 
         return fx;
     }
->>>>>>> Stashed changes
+
 }
