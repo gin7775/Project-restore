@@ -20,7 +20,7 @@ public class MovementCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        actualHover = hoverSpeed;
+        actualHover = strafeSpeed;
         screenCenter.x = Screen.width * .5f;
         screenCenter.y = Screen.height * .5f;
     }
@@ -57,11 +57,11 @@ public class MovementCamera : MonoBehaviour
 
         if (Physics.Raycast(caster.transform.position, caster.transform.up * -1, out hit, rayDistance))
         {
-            hoverSpeed = 0;
+            strafeSpeed = 0;
         }
         else
         {
-            hoverSpeed = actualHover;
+            strafeSpeed = actualHover;
         }
 
     }
