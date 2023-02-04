@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuPausa : MonoBehaviour
 {
@@ -17,15 +18,15 @@ public class MenuPausa : MonoBehaviour
 
     private void Start()
     {
-         rb = player.GetComponent<Rigidbody>();
+        rb = player.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(Paused)
+            if (Paused)
             {
                 Resume();
             }
@@ -35,7 +36,7 @@ public class MenuPausa : MonoBehaviour
             }
         }
     }
-    public void Resume ()
+    public void Resume()
     {
         MenuPausaUI.SetActive(false);
         rb.constraints = RigidbodyConstraints.None;
@@ -44,7 +45,7 @@ public class MenuPausa : MonoBehaviour
         Paused = false;
     }
 
-     void Pause()
+    void Pause()
     {
         MenuPausaUI.SetActive(true);
         //Time.timeScale = 0f;
@@ -52,5 +53,18 @@ public class MenuPausa : MonoBehaviour
         movement.moving = false;
         Debug.Log("PAUSA");
         Paused = true;
+    }
+    public void LoadMenu () 
+    {
+        SceneManager.LoadScene("Menu");
+    }
+    public void LoadOpciones ()
+    {
+        SceneManager.LoadScene("Opciones");
+    }
+    public void QuitGame ()
+    {
+        Debug.Log("Quitting game...");
+        Application.Quit();
     }
 }
