@@ -28,7 +28,6 @@ public class ScripterController : MonoBehaviour
         if (other.gameObject.tag == "fatuoIglesia")
         {
             fuegoFatuoContainer += 1;
-            gameManager.collectarFatuoIglesia();
             Destroy(other.gameObject.GetComponentInParent<Transform>().parent.gameObject);
             Debug.Log("Hey, lo tienes fatuoIglesia " + fuegoFatuoContainer);
         }
