@@ -20,6 +20,7 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
+       
         for (int i = 0; i < tracks.Length; i++)
         {
             tracks[i].mute = true;
@@ -28,7 +29,7 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    
+        DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
