@@ -92,7 +92,8 @@ public class MovementCamera : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space)|| Input.GetKeyUp(KeyCode.LeftShift))
         {
             Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().m_Lens.FieldOfView = Mathf.Lerp(Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().m_Lens.FieldOfView, 60, 0.02f);
-            if(fuegoFatuoContainer > 0)
+
+            if (fuegoFatuoContainer > 0)
             {
                 fuegoFatuoContainer--;
                 Destroy(fatuos[fuegoFatuoContainer].gameObject);
