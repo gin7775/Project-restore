@@ -6,6 +6,7 @@ public class MusicController : MonoBehaviour
 {
     public MusicManager musicManager;
     public AudioSource menuFX;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +19,20 @@ public class MusicController : MonoBehaviour
     {
         if(musicManager == null)
         {
-            musicManager = GetComponent<MusicManager>();    
+            musicManager = FindObjectOfType<MusicManager>();
+            menuFX = musicManager.RecieveMenuFX1();
         }
     }
     public void PlayMenuFX()
     {
         menuFX.Play();
+    }
+    public void CallUnmuteAll()
+    {
+        musicManager.UnmuteAll();
+    }
+    public void CallUnmuteTrack(MusicManager.Instrumentos instrumento)
+    {
+        musicManager.unMuteAudio(instrumento);
     }
 }

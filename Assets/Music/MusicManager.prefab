@@ -189,6 +189,7 @@ MonoBehaviour:
   - {fileID: 7636004555993409394}
   - {fileID: 7636004556665466041}
   wind: {fileID: 7636004556309648997}
+  menufx1: {fileID: 4452898352335301473}
 --- !u!1 &7636004555993409395
 GameObject:
   m_ObjectHideFlags: 0

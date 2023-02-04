@@ -107,4 +107,23 @@ public class MusicManager : MonoBehaviour
             
         }
     }
+<<<<<<< Updated upstream
+=======
+
+    public void UnmuteAll()
+    {
+        for (int i = 0; i < tracks.Length; i++)
+        {
+            tracks[i].mute = false;
+        }
+    }
+
+    public AudioSource RecieveMenuFX1()
+    {
+        AudioSource fx;
+        fx = menufx1;
+
+        return fx;
+    }
+>>>>>>> Stashed changes
 }
