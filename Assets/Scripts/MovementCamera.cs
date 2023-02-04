@@ -17,6 +17,8 @@ public class MovementCamera : MonoBehaviour
     public float lookRateSpeed = 90f;
     private Vector2 lookInput, screenCenter, mouseDistance;
 
+    public bool moving = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,13 +50,16 @@ public class MovementCamera : MonoBehaviour
 
         RaycastHit hit;
         
+        if(moving)
+        {
+            activeStrafeSpeed = Mathf.Lerp(activeStrafeSpeed, Input.GetAxisRaw("Horizontal") * strafeSpeed, strafeAcceleration * Time.deltaTime);
+            activeHoverSpeed = Mathf.Lerp(activeHoverSpeed, Input.GetAxisRaw("Vertical") * hoverSpeed, hoverAcceleration * Time.deltaTime);
 
-        activeStrafeSpeed = Mathf.Lerp(activeStrafeSpeed, Input.GetAxisRaw("Horizontal") * strafeSpeed,strafeAcceleration * Time.deltaTime);
-        activeHoverSpeed = Mathf.Lerp( activeHoverSpeed,Input.GetAxisRaw("Vertical") * hoverSpeed,hoverAcceleration * Time.deltaTime);
-
-        transform.position += transform.forward * forwardSpeed * Time.deltaTime;
-        transform.position += transform.up * activeHoverSpeed * Time.deltaTime;
-        transform.Rotate(Vector3.up, Input.GetAxisRaw("Horizontal") * strafeSpeed * 2 * Time.deltaTime);
+            transform.position += transform.forward * forwardSpeed * Time.deltaTime;
+            transform.position += transform.up * activeHoverSpeed * Time.deltaTime;
+            transform.Rotate(Vector3.up, Input.GetAxisRaw("Horizontal") * strafeSpeed * 2 * Time.deltaTime);
+        }
+        
 
         Debug.DrawRay(caster.transform.position, caster.transform.up * -1 * rayDistance, Color.red);
 
