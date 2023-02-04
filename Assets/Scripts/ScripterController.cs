@@ -36,7 +36,8 @@ public class ScripterController : MonoBehaviour
         if (other.gameObject.tag == "luzIglesia")
         {
             gameManager.collectarLuzIglesia();
-            Destroy(other.gameObject.GetComponentInParent<Transform>().parent.gameObject);
+            other.gameObject.GetComponent<Animator>().SetTrigger("Explosion");
+            //Destroy(other.gameObject.GetComponentInParent<Transform>().parent.gameObject);
             Debug.Log("Hey, lo tienes luzIglesia");
         }
 
