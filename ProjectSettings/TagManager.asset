@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - luzCasa
+  - luzCripta
+  - luzIglesia
+  - fatuoCasa
+  - fatuoCripta
+  - fatuoIglesia
   layers:
   - Default
   - TransparentFX
