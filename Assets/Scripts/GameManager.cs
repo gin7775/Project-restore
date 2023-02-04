@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        lucesCripta = activateChildCount(inactiveCriptGameObjects);
 
         if (isCollectedLucesCripta)
         {
@@ -65,14 +66,18 @@ public class GameManager : MonoBehaviour
     private int activateChildCount(GameObject[] array)
     {
         int contador = 0;
-        Debug.Log("lenght " + array.Length);
         foreach (GameObject go in array)
         {
             if (go != null) {
-                Debug.Log("lenght " + array.Length);
-                contador = array.Length;
-                Debug.Log("contador " + contador);
-                go.transform.GetChild(0).gameObject.SetActive(true);
+                if (go.transform.childCount > 0)
+                {
+                    contador = array.Length;
+                    go.transform.GetChild(0).gameObject.SetActive(true);
+                }
+                else
+                {
+                    contador = go.transform.childCount;
+                }
             }
         }
         return contador;
