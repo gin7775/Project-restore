@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4488418577267030832}
   m_Layer: 0
   m_Name: ballPoint
-  m_TagString: fatuoIglesia
+  m_TagString: fatuo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529441972304696169}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: -26.8, z: 0}
-  m_LocalScale: {x: 13, y: 13, z: 13}
+  m_LocalPosition: {x: -17.38, y: -1.68, z: 0}
+  m_LocalScale: {x: 0.61403424, y: 0.61403424, z: 0.61403424}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1749849620459001774}
@@ -190,5 +190,5 @@ Transform:
   m_Children:
   - {fileID: 1749849620429346846}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -12,8 +12,9 @@ public class MovementCamera : MonoBehaviour
     public float fowardAcceleration = 2.5f, strafeAcceleration=2f, hoverAcceleration=2f;
     public float rootLimit,rayDistance=2;
     public GameObject camara;
-
+    public Transform []firePos,fatuos;
     public GameObject caster;
+    public int fuegoFatuoContainer;
     public float lookRateSpeed = 90f;
     private Vector2 lookInput, screenCenter, mouseDistance;
 
@@ -22,12 +23,14 @@ public class MovementCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fuegoFatuoContainer = 0;
         actualHover = strafeSpeed;
         initialSpeed = forwardSpeed;
         highSpeed = initialSpeed + 5;
         lowSpeed = initialSpeed - 5;
         screenCenter.x = Screen.width * .5f;
         screenCenter.y = Screen.height * .5f;
+        
     }
 
     // Update is called once per frame
@@ -72,13 +75,13 @@ public class MovementCamera : MonoBehaviour
             strafeSpeed = actualHover;
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && fuegoFatuoContainer >= 0)
         {
             forwardSpeed = lowSpeed;
             
         }
        
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && fuegoFatuoContainer >= 0)
         {
             forwardSpeed = highSpeed;
 
@@ -86,11 +89,27 @@ public class MovementCamera : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Space)|| Input.GetKeyUp(KeyCode.LeftShift))
         {
+            fuegoFatuoContainer--;
+            Destroy(fatuos[fuegoFatuoContainer].gameObject);
             forwardSpeed = initialSpeed;
 
         }
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "fatuo")
+        {
+            fatuos[fuegoFatuoContainer] = other.transform;
+            other.transform.position = firePos[fuegoFatuoContainer].position;
+            other.transform.rotation = firePos[fuegoFatuoContainer].rotation;
+            fatuos[fuegoFatuoContainer] = other.transform;
+            other.transform.SetParent(firePos[fuegoFatuoContainer]);
+            fuegoFatuoContainer += 1;
+
+            
+            Debug.Log("Hey, lo tienes fatuo " + fuegoFatuoContainer);
+        }
+    }
 
 }

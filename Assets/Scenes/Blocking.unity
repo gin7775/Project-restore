@@ -271,15 +271,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1749849620459001774, guid: 41c73bbfaa6d89646a87b6dbace4eee6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -212.2
+      value: -1.66
       objectReference: {fileID: 0}
     - target: {fileID: 1749849620459001774, guid: 41c73bbfaa6d89646a87b6dbace4eee6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 35.29
+      value: 41.28
       objectReference: {fileID: 0}
     - target: {fileID: 1749849620459001774, guid: 41c73bbfaa6d89646a87b6dbace4eee6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -150
+      value: 2.56
       objectReference: {fileID: 0}
     - target: {fileID: 1749849620459001774, guid: 41c73bbfaa6d89646a87b6dbace4eee6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4833,7 +4833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3610727916377211683, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.123762354
+      value: 0.12376236
       objectReference: {fileID: 0}
     - target: {fileID: 3610727916377211683, guid: 703aacb0ad4812f4e93054f885cb197c, type: 3}
       propertyPath: m_LocalRotation.y
@@ -4930,6 +4930,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2074202365, guid: 27d528db27211924bbdb057bc0ddf896, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 744740358643374792, guid: 27d528db27211924bbdb057bc0ddf896, type: 3}
       propertyPath: m_Name
       value: player
@@ -4982,6 +4986,10 @@ PrefabInstance:
       propertyPath: camara
       value: 
       objectReference: {fileID: 621766715}
+    - target: {fileID: 744740358643374838, guid: 27d528db27211924bbdb057bc0ddf896, type: 3}
+      propertyPath: fatuos.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 27d528db27211924bbdb057bc0ddf896, type: 3}
