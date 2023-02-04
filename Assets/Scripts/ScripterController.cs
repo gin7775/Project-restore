@@ -7,17 +7,19 @@ using UnityEngine.UIElements;
 
 public class ScripterController : MonoBehaviour
 {
+    public float fuegoFatuoContainer;
     public GameManager gameManager;
 
     private void Start()
     {
+        fuegoFatuoContainer = 6;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //other.isTrigger = false;
-        //Debug.Log(other.gameObject.tag);
+        other.isTrigger = false;
+        Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == "luzCasa")
         {
             other.gameObject.GetComponent<Animator>().SetTrigger("Explosion");
@@ -39,7 +41,12 @@ public class ScripterController : MonoBehaviour
             Debug.Log("Hey, lo tienes luzIglesia");
         }
 
-        
+        if (other.gameObject.tag == "fatuo")
+        {
+            fuegoFatuoContainer += 1;
+            Destroy(other.gameObject.GetComponentInParent<Transform>().parent.gameObject);
+            Debug.Log("Hey, lo tienes fatuo " + fuegoFatuoContainer);
+        }
     }
 
 }

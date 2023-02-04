@@ -13,8 +13,6 @@ public class MovementCamera : MonoBehaviour
     public float rootLimit,rayDistance=2;
     public GameObject camara;
 
-    public float fuegoFatuoContainer;
-
     public GameObject caster;
     public float lookRateSpeed = 90f;
     private Vector2 lookInput, screenCenter, mouseDistance;
@@ -24,8 +22,6 @@ public class MovementCamera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        fuegoFatuoContainer = 1;
         actualHover = strafeSpeed;
         initialSpeed = forwardSpeed;
         highSpeed = initialSpeed + 5;
@@ -76,13 +72,13 @@ public class MovementCamera : MonoBehaviour
             strafeSpeed = actualHover;
         }
 
-        if (Input.GetKey(KeyCode.Space) && fuegoFatuoContainer >= 0)
+        if (Input.GetKey(KeyCode.Space))
         {
             forwardSpeed = lowSpeed;
             
         }
        
-        if (Input.GetKey(KeyCode.LeftShift) && fuegoFatuoContainer >= 0)
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             forwardSpeed = highSpeed;
 
@@ -91,19 +87,10 @@ public class MovementCamera : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space)|| Input.GetKeyUp(KeyCode.LeftShift))
         {
             forwardSpeed = initialSpeed;
-            fuegoFatuoContainer--;
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "fatuo")
-        {
-            fuegoFatuoContainer += 1;
-            Destroy(other.gameObject.GetComponentInParent<Transform>().parent.gameObject);
-            Debug.Log("Hey, lo tienes fatuo " + fuegoFatuoContainer);
+
         }
     }
 
-
+    
 
 }
