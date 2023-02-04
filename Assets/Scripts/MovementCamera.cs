@@ -40,7 +40,7 @@ public class MovementCamera : MonoBehaviour
         
         transform.Rotate(posRot, negRot, 0f, Space.Self);
 
-        
+       // LimitRoot();
 
         activeStrafeSpeed = Mathf.Lerp(activeStrafeSpeed, Input.GetAxisRaw("Horizontal") + strafeSpeed,strafeAcceleration * Time.deltaTime);
         activeHoverSpeed = Mathf.Lerp( activeHoverSpeed,Input.GetAxisRaw("Vertical") + hoverSpeed,hoverAcceleration * Time.deltaTime);
@@ -54,9 +54,9 @@ public class MovementCamera : MonoBehaviour
     {
 
         Vector3 playerEulerAngles = transform.rotation.eulerAngles;
-
+        /*
         playerEulerAngles.y = (playerEulerAngles.y > 180) ? playerEulerAngles.y - 360 : playerEulerAngles.y;
-        playerEulerAngles.y = Mathf.Clamp(playerEulerAngles.y, rootLimit * -1, rootLimit);
+        playerEulerAngles.y = Mathf.Clamp(playerEulerAngles.y, rootLimit * -1, rootLimit);*/
 
         playerEulerAngles.x = (playerEulerAngles.x > 180) ? playerEulerAngles.x - 360 : playerEulerAngles.x;
         playerEulerAngles.x = Mathf.Clamp(playerEulerAngles.x, rootLimit * -1, rootLimit);
