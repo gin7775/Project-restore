@@ -7,6 +7,7 @@ public class MusicManager : MonoBehaviour
 {
     public AudioSource[] tracks;
     public AudioSource wind;
+    public AudioSource menufx1;
     public enum Instrumentos
     {
         Piano, //0
@@ -18,23 +19,35 @@ public class MusicManager : MonoBehaviour
     }
     Instrumentos instrumento;
     private static MusicManager _instance;
-    public  static MusicManager Instance
+    
+    public static MusicManager Instance
     {
         get
         {
-            if(_instance is null)
+            return _instance;
+        }
+        private set
+        {
+            if (_instance is null)
             {
+                _instance = value;
+            }
+            else
+            if (_instance is null)
+            {
+                Destroy(value.gameObject);
                 _instance = new MusicManager();
             }
-            return _instance;
+            
         }
     }
 
-   
+
 
     private void Awake()
     {
-       _instance = this;
+        Instance = this;
+       
         for (int i = 0; i < tracks.Length; i++)
         {
             tracks[i].mute = true;
@@ -45,7 +58,6 @@ public class MusicManager : MonoBehaviour
     {
         DontDestroyOnLoad(this);
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -73,16 +85,14 @@ public class MusicManager : MonoBehaviour
         {
             unMuteAudio(Instrumentos.Pads);
         }
-      
 
     }
-
     public void unMuteAudio(Instrumentos instrumento)
     {
         int audio = Convert.ToInt32(instrumento);
         switch (instrumento)
         {
-            
+
             case Instrumentos.Piano:
                 tracks[audio].mute = false;
                 break;
@@ -104,10 +114,8 @@ public class MusicManager : MonoBehaviour
             default:
                 break;
 
-            
         }
     }
-
 
     public void UnmuteAll()
     {
