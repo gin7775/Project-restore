@@ -7,9 +7,7 @@ TagManager:
   - luzCasa
   - luzCripta
   - luzIglesia
-  - fatuoCasa
-  - fatuoCripta
-  - fatuoIglesia
+  - fatuo
   layers:
   - Default
   - TransparentFX

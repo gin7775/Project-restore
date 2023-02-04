@@ -7,12 +7,10 @@ using UnityEngine.UIElements;
 
 public class ScripterController : MonoBehaviour
 {
-    public float fuegoFatuoContainer;
     public GameManager gameManager;
 
     private void Start()
     {
-        fuegoFatuoContainer = 6;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -41,12 +39,7 @@ public class ScripterController : MonoBehaviour
             Debug.Log("Hey, lo tienes luzIglesia");
         }
 
-        if (other.gameObject.tag == "fatuo")
-        {
-            fuegoFatuoContainer += 1;
-            Destroy(other.gameObject.GetComponentInParent<Transform>().parent.gameObject);
-            Debug.Log("Hey, lo tienes fatuo " + fuegoFatuoContainer);
-        }
+        
     }
 
 }
