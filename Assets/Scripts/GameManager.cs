@@ -35,7 +35,6 @@ public class GameManager : MonoBehaviour
 
         musicController = FindObjectOfType<MusicController>();  
 
-
         lucesCripta = activateChildCount(inactiveCriptGameObjects);
     }
 
@@ -72,15 +71,17 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
     private int activateChildCount(GameObject[] array)
     {
         int contador = 0;
         foreach (GameObject go in array)
         {
-            if (go != null) {
+            if (go != null)
+            {
                 if (go.transform.childCount > 0)
                 {
-                    contador = array.Length;
+                    contador++;
                     go.transform.GetChild(0).gameObject.SetActive(true);
                 }
                 else
@@ -92,12 +93,20 @@ public class GameManager : MonoBehaviour
         return contador;
     }
 
- 
+    private void activateBuildings(GameObject padre)
+    {
+        for (int i = 0; i < padre.transform.childCount; i++)
+        {
+            GameObject auxGO = padre.transform.GetChild(i).gameObject;
+            auxGO.SetActive(!auxGO.activeSelf);
+        }
+    }
 
     private void finishCripta() 
     {
-       // musicController.CallUnmuteTrack(MusicManager.Instrumentos.Piano);
-        Debug.Log("isCollectedLucesCripta " + isCollectedLucesIglesia);
+        // musicController.CallUnmuteTrack(MusicManager.Instrumentos.Piano);
+        activateBuildings(GameObject.FindGameObjectWithTag("Mausoleum"));
+        Debug.Log("isCollectedLucesCripta " + isCollectedLucesCripta);
     }
 
     private void finishIglesia()
