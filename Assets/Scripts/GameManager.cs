@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -15,9 +16,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool isCollectedLucesIglesia;
     [SerializeField] bool isCollectedLucesMolino;
 
-    public GameObject[] inactiveHouseGameObjects;
-    public GameObject[] inactiveCriptGameObjects;
-    public GameObject[] inactiveChurchGameObjects;
+    [SerializeField] GameObject inactiveHouseGameObjects;
+    [SerializeField] GameObject inactiveCriptGameObjects;
+    [SerializeField] GameObject inactiveChurchGameObjects;
+    [SerializeField] GameObject inactiveWindmillGameObjects;
 
     public MusicController musicController;
     
@@ -33,7 +35,13 @@ public class GameManager : MonoBehaviour
         isCollectedLucesIglesia = false;
         isCollectedLucesMolino = false;
 
-        musicController = FindObjectOfType<MusicController>();  
+        musicController = FindObjectOfType<MusicController>();
+
+        // Obtiene el objeto padre de las luces
+        inactiveHouseGameObjects = GameObject.FindGameObjectWithTag("HousesLights");
+        inactiveCriptGameObjects = GameObject.FindGameObjectWithTag("MausoleumLights");
+        inactiveChurchGameObjects = GameObject.FindGameObjectWithTag("ChurchLights");
+        inactiveWindmillGameObjects = GameObject.FindGameObjectWithTag("WindmillLights");
 
         lucesCripta = ActivateChildCount(inactiveCriptGameObjects);
     }
@@ -72,27 +80,25 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private int ActivateChildCount(GameObject[] array)
+    // Activa las luces hijas
+    private int ActivateChildCount(GameObject go)
     {
         int contador = 0;
-        foreach (GameObject go in array)
+
+        for (int i = 0; i < go.transform.childCount; i++)
         {
-            if (go != null)
+            GameObject auxGo = go.transform.GetChild(i).gameObject;
+            for (int j = 0; j < auxGo.transform.childCount; j++)
             {
-                if (go.transform.childCount > 0)
-                {
-                    contador++;
-                    go.transform.GetChild(0).gameObject.SetActive(true);
-                }
-                else
-                {
-                    contador = go.transform.childCount;
-                }
+                auxGo.transform.GetChild(j).gameObject.SetActive(true);
+                contador++;
             }
         }
+        
         return contador;
     }
 
+    // Oculta ruinas y muestra edificio
     private void ActivateBuildings(GameObject padre)
     {
         for (int i = 0; i < padre.transform.childCount; i++)
