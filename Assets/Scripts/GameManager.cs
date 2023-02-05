@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         lucesCasa = 5;
         lucesCripta = 5;
+        lucesMolino = 5;
         lucesIglesia = 5;
         isCollectedLucesCasa = false;
         isCollectedLucesCripta = false;
