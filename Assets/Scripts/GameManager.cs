@@ -35,44 +35,44 @@ public class GameManager : MonoBehaviour
 
         musicController = FindObjectOfType<MusicController>();  
 
-        lucesCripta = activateChildCount(inactiveCriptGameObjects);
+        lucesCripta = ActivateChildCount(inactiveCriptGameObjects);
     }
 
     void Update()
     {
-        lucesCripta = activateChildCount(inactiveCriptGameObjects);
+        lucesCripta = ActivateChildCount(inactiveCriptGameObjects);
 
         if (isCollectedLucesCripta)
         {
-            lucesIglesia = activateChildCount(inactiveChurchGameObjects);
+            lucesIglesia = ActivateChildCount(inactiveChurchGameObjects);
         }
 
         if (isCollectedLucesIglesia)
         {
-            lucesCasa = activateChildCount(inactiveHouseGameObjects);
+            lucesCasa = ActivateChildCount(inactiveHouseGameObjects);
         }
 
         if (lucesCripta <= 0 && !isCollectedLucesCripta)
         {
             isCollectedLucesCripta = true;
-            finishCripta();
+            FinishCripta();
         }
 
         if (lucesIglesia <= 0 && !isCollectedLucesIglesia)
         {
             isCollectedLucesIglesia = true;
-            finishIglesia();
+            FinishIglesia();
         }
         //Hay que meter el molino, las variables creo que están todas.
         if (lucesCasa <= 0 && !isCollectedLucesCasa)
         {
             isCollectedLucesCasa = true;
-            finishCasa();
+            FinishCasa();
         }
 
     }
 
-    private int activateChildCount(GameObject[] array)
+    private int ActivateChildCount(GameObject[] array)
     {
         int contador = 0;
         foreach (GameObject go in array)
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
         return contador;
     }
 
-    private void activateBuildings(GameObject padre)
+    private void ActivateBuildings(GameObject padre)
     {
         for (int i = 0; i < padre.transform.childCount; i++)
         {
@@ -102,26 +102,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void finishCripta() 
+    private void FinishCripta() 
     {
         // musicController.CallUnmuteTrack(MusicManager.Instrumentos.Piano);
-        activateBuildings(GameObject.FindGameObjectWithTag("Mausoleum"));
+        ActivateBuildings(GameObject.FindGameObjectWithTag("Mausoleum"));
         Debug.Log("isCollectedLucesCripta " + isCollectedLucesCripta);
     }
 
-    private void finishIglesia()
+    private void FinishIglesia()
     {
-       // musicController.CallUnmuteTrack(MusicManager.Instrumentos.Celesta);
+        // musicController.CallUnmuteTrack(MusicManager.Instrumentos.Celesta);
+        ActivateBuildings(GameObject.FindGameObjectWithTag("Church"));
         Debug.Log("isCollectedLucesIglesia " + isCollectedLucesIglesia);
     }
-    private void finishMolino()
+    private void FinishMolino()
     {
         //musicController.CallUnmuteTrack(MusicManager.Instrumentos.PercInicial);
+        ActivateBuildings(GameObject.FindGameObjectWithTag("Windmill"));
         Debug.Log("isCollectedLucesMolino " + isCollectedLucesMolino);
     }
-    private void finishCasa() //Las casas se construyen todas a la vez, por lo que hay que hacer una lista de casas para reconstruirlas
+    private void FinishCasa() //Las casas se construyen todas a la vez, por lo que hay que hacer una lista de casas para reconstruirlas
     {
-       // musicController.CallAudioFinal();
+        // musicController.CallAudioFinal();
+        ActivateBuildings(GameObject.FindGameObjectWithTag("House"));
         Debug.Log("isCollectedLucesCasa " + isCollectedLucesCasa);
     }
 }

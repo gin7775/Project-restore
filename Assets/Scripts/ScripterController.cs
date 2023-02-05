@@ -16,29 +16,34 @@ public class ScripterController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.tag);
-        if (other.gameObject.tag == "luzCasa")
-        {
-            other.gameObject.GetComponent<Animator>().SetTrigger("Explosion");
-            //Destroy(other.gameObject.GetComponentInChildren<Transform>().gameObject);
-            Debug.Log("Hey, lo tienes luzCasa");
-        }
-
-        if (other.gameObject.tag == "luzCripta")
+        if (other.gameObject.tag.Equals("luzCripta"))
         {
             other.gameObject.GetComponent<Animator>().SetTrigger("Explosion");
             //Destroy(other.gameObject.GetComponentInChildren<Transform>().gameObject);
             Debug.Log("Hey, lo tienes luzCripta");
         }
 
-        if (other.gameObject.tag == "luzIglesia")
+        if (other.gameObject.tag.Equals("luzIglesia"))
         {
             other.gameObject.GetComponent<Animator>().SetTrigger("Explosion");
             //Destroy(other.gameObject.GetComponentInParent<Transform>().parent.gameObject);
             Debug.Log("Hey, lo tienes luzIglesia");
         }
 
-       
+        if (other.gameObject.tag.Equals("luzMolino"))
+        {
+            other.gameObject.GetComponent<Animator>().SetTrigger("Explosion");
+            //Destroy(other.gameObject.GetComponentInParent<Transform>().parent.gameObject);
+            Debug.Log("Hey, lo tienes luzMolino");
+        }
+
+        if (other.gameObject.tag.Equals("luzCasa"))
+        {
+            other.gameObject.GetComponent<Animator>().SetTrigger("Explosion");
+            //Destroy(other.gameObject.GetComponentInChildren<Transform>().gameObject);
+            Debug.Log("Hey, lo tienes luzCasa");
+        }
+
     }
 
 }

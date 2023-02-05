@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 42769389}
   m_Layer: 0
   m_Name: Lights
-  m_TagString: Untagged
+  m_TagString: MausoleumLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -982,7 +982,7 @@ GameObject:
   - component: {fileID: 325486346}
   m_Layer: 0
   m_Name: Lights
-  m_TagString: Untagged
+  m_TagString: HousesLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3844,7 +3844,7 @@ GameObject:
   - component: {fileID: 1114028784}
   m_Layer: 0
   m_Name: Lights
-  m_TagString: Untagged
+  m_TagString: WindmillLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4981,7 +4981,7 @@ GameObject:
   - component: {fileID: 1515802045}
   m_Layer: 0
   m_Name: Lights
-  m_TagString: Untagged
+  m_TagString: ChurchLights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6637,7 +6637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1920213405}
   m_Layer: 0
-  m_Name: Maunsoleum
+  m_Name: Mausoleum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
