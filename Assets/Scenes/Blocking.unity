@@ -3479,6 +3479,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FXController
       objectReference: {fileID: 0}
+    - target: {fileID: 2609416498576029476, guid: 2d10b885e91e1444c9f2788464204c49, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2609416498576029477, guid: 2d10b885e91e1444c9f2788464204c49, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -6545,7 +6549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4329828225441288308, guid: 9741689b46302f14990b5220b54088ae, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4329828225441288311, guid: 9741689b46302f14990b5220b54088ae, type: 3}
       propertyPath: m_LocalPosition.x
