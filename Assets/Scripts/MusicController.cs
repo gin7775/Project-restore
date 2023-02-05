@@ -10,7 +10,7 @@ public class MusicController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        musicManager = FindObjectOfType<MusicManager>();
+       musicManager = FindObjectOfType<MusicManager>();
         menuFX = musicManager.RecieveMenuFX1();
         fire = musicManager.fire;
         luz = musicManager.luz;

@@ -66,34 +66,34 @@ public class MusicManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKey(KeyCode.Z))
-        //{
-        //    unMuteAudio(Instrumentos.Piano);
-        //}
-        //if (Input.GetKey(KeyCode.X))
-        //{
-        //    unMuteAudio(Instrumentos.Celesta);
-        //}
-        //if (Input.GetKey(KeyCode.C))
-        //{
-        //    unMuteAudio(Instrumentos.PercInicial);
-        //}
-        //if (Input.GetKey(KeyCode.V))
-        //{
-        //    unMuteAudio(Instrumentos.Violin);
-        //}
-        //if (Input.GetKey(KeyCode.B))
-        //{
-        //    unMuteAudio(Instrumentos.Bajo);
-        //}
-        //if (Input.GetKey(KeyCode.N))
-        //{
-        //    unMuteAudio(Instrumentos.Pads);
-        //}
-        //if (Input.GetKey(KeyCode.O))
-        //{
-        //    MuteDemute();
-        //}
+        if (Input.GetKey(KeyCode.Z))
+        {
+            unMuteAudio(Instrumentos.Piano);
+        }
+        if (Input.GetKey(KeyCode.X))
+        {
+            unMuteAudio(Instrumentos.Celesta);
+        }
+        if (Input.GetKey(KeyCode.C))
+        {
+            unMuteAudio(Instrumentos.PercInicial);
+        }
+        if (Input.GetKey(KeyCode.V))
+        {
+            unMuteAudio(Instrumentos.Violin);
+        }
+        if (Input.GetKey(KeyCode.B))
+        {
+            unMuteAudio(Instrumentos.Bajo);
+        }
+        if (Input.GetKey(KeyCode.N))
+        {
+            unMuteAudio(Instrumentos.Pads);
+        }
+        if (Input.GetKey(KeyCode.O))
+        {
+            MuteDemute();
+        }
 
     }
     public void unMuteAudio(Instrumentos instrumento)
