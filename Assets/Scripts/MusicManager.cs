@@ -8,14 +8,15 @@ public class MusicManager : MonoBehaviour
     public AudioSource[] tracks;
     public AudioSource wind;
     public AudioSource menufx1;
+    public AudioSource bucleFinal;
     public enum Instrumentos
     {
         Piano, //0
-        Tom, //1
-        Flauta, //2
-        Melody, //3
+        Celesta, //1
+        PercInicial, //2
+        Violin, //3
         Bajo, //4
-        Pads //5
+        Pads, //5
     }
     Instrumentos instrumento;
     private static MusicManager _instance;
@@ -47,15 +48,18 @@ public class MusicManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-       
+        bucleFinal.mute = true;
+
         for (int i = 0; i < tracks.Length; i++)
         {
             tracks[i].mute = true;
         }
+      
     }
     // Start is called before the first frame update
     void Start()
     {
+       
         DontDestroyOnLoad(this);
     }
     // Update is called once per frame
@@ -67,15 +71,15 @@ public class MusicManager : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.X))
         {
-            unMuteAudio(Instrumentos.Tom);
+            unMuteAudio(Instrumentos.Celesta);
         }
         if (Input.GetKey(KeyCode.C))
         {
-            unMuteAudio(Instrumentos.Flauta);
+            unMuteAudio(Instrumentos.PercInicial);
         }
         if (Input.GetKey(KeyCode.V))
         {
-            unMuteAudio(Instrumentos.Melody);
+            unMuteAudio(Instrumentos.Violin);
         }
         if (Input.GetKey(KeyCode.B))
         {
@@ -84,6 +88,10 @@ public class MusicManager : MonoBehaviour
         if (Input.GetKey(KeyCode.N))
         {
             unMuteAudio(Instrumentos.Pads);
+        }
+        if (Input.GetKey(KeyCode.O))
+        {
+            MuteDemute();
         }
 
     }
@@ -96,13 +104,13 @@ public class MusicManager : MonoBehaviour
             case Instrumentos.Piano:
                 tracks[audio].mute = false;
                 break;
-            case Instrumentos.Tom:
+            case Instrumentos.Celesta:
                 tracks[audio].mute = false;
                 break;
-            case Instrumentos.Flauta:
+            case Instrumentos.PercInicial:
                 tracks[audio].mute = false;
                 break;
-            case Instrumentos.Melody:
+            case Instrumentos.Violin:
                 tracks[audio].mute = false;
                 break;
             case Instrumentos.Bajo:
@@ -132,5 +140,15 @@ public class MusicManager : MonoBehaviour
 
         return fx;
     }
+    public void MuteDemute()
+    {
+        for (int i = 0; i < tracks.Length; i++)
+        {
+            tracks[i].mute = true;
+        }
+        bucleFinal.mute = false;
+
+    }
+   
 
 }

@@ -8,14 +8,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] int lucesCasa;
     [SerializeField] int lucesCripta;
     [SerializeField] int lucesIglesia;
+    [SerializeField] int lucesMolino;
 
     [SerializeField] bool isCollectedLucesCasa;
     [SerializeField] bool isCollectedLucesCripta;
     [SerializeField] bool isCollectedLucesIglesia;
+    [SerializeField] bool isCollectedLucesMolino;
 
     public GameObject[] inactiveHouseGameObjects;
     public GameObject[] inactiveCriptGameObjects;
     public GameObject[] inactiveChurchGameObjects;
+
+    public MusicController musicController;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +31,10 @@ public class GameManager : MonoBehaviour
         isCollectedLucesCasa = false;
         isCollectedLucesCripta = false;
         isCollectedLucesIglesia = false;
+        isCollectedLucesMolino = false;
+
+        musicController = FindObjectOfType<MusicController>();  
+
 
         lucesCripta = activateChildCount(inactiveCriptGameObjects);
     }
@@ -55,7 +64,7 @@ public class GameManager : MonoBehaviour
             isCollectedLucesIglesia = true;
             finishIglesia();
         }
-
+        //Hay que meter el molino, las variables creo que están todas.
         if (lucesCasa <= 0 && !isCollectedLucesCasa)
         {
             isCollectedLucesCasa = true;
@@ -83,18 +92,27 @@ public class GameManager : MonoBehaviour
         return contador;
     }
 
-    private void finishCasa()
-    {
-        Debug.Log("isCollectedLucesCasa " + isCollectedLucesIglesia);
-    }
+ 
 
-    private void finishCripta()
+    private void finishCripta() 
     {
+       // musicController.CallUnmuteTrack(MusicManager.Instrumentos.Piano);
         Debug.Log("isCollectedLucesCripta " + isCollectedLucesIglesia);
     }
 
     private void finishIglesia()
     {
+       // musicController.CallUnmuteTrack(MusicManager.Instrumentos.Celesta);
         Debug.Log("isCollectedLucesIglesia " + isCollectedLucesIglesia);
+    }
+    private void finishMolino()
+    {
+        //musicController.CallUnmuteTrack(MusicManager.Instrumentos.PercInicial);
+        Debug.Log("isCollectedLucesMolino " + isCollectedLucesMolino);
+    }
+    private void finishCasa() //Las casas se construyen todas a la vez, por lo que hay que hacer una lista de casas para reconstruirlas
+    {
+       // musicController.CallAudioFinal();
+        Debug.Log("isCollectedLucesCasa " + isCollectedLucesCasa);
     }
 }
