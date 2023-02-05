@@ -22,6 +22,7 @@ public class FuegoFatuo : MonoBehaviour
             respawnTime -= Time.deltaTime;
             if (respawnTime <= 0)
             {
+                respawnTime = Random.Range(10, 21);
                 deathFire = false;
                 GameObject toInstantiate = GameObject.Instantiate(childFire, this.transform.position, Quaternion.identity);
                 toInstantiate.transform.SetParent(this.transform);
