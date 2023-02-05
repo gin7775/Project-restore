@@ -127,6 +127,7 @@ Debug.DrawRay(caster.transform.position, caster.transform.up * -1 * rayDistance,
             other.GetComponentInParent<FuegoFatuo>().deathFire = true;
             other.transform.SetParent(firePos[fuegoFatuoContainer]);
             fuegoFatuoContainer++;
+            MusicController.FindObjectOfType<MusicController>().PlayFXFire();
 
 
             Debug.Log("Hey, lo tienes fatuo " + fuegoFatuoContainer);

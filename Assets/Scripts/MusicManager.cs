@@ -35,10 +35,8 @@ public class MusicManager : MonoBehaviour
                 _instance = value;
             }
             else
-            if (_instance is null)
             {
                 Destroy(value.gameObject);
-                _instance = new MusicManager();
             }
             
         }
@@ -132,7 +130,7 @@ public class MusicManager : MonoBehaviour
     {
         for (int i = 0; i < tracks.Length; i++)
         {
-            tracks[i].mute = false;
+            tracks[i].mute = true;
         }
     }
 
