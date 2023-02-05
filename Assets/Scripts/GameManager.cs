@@ -122,32 +122,36 @@ public class GameManager : MonoBehaviour
 
     private void FinishCripta() 
     {
-        musicController.CallUnmuteTrack(MusicManager.Instrumentos.Piano);
-        StartCoroutine(Building("Mausoleum"));
+      
+        StartCoroutine(Building("Mausoleum", MusicManager.Instrumentos.Piano));
+        //musicController.CallUnmuteTrack(MusicManager.Instrumentos.Piano);
         Debug.Log("isCollectedLucesCripta " + isCollectedLucesCripta);
     }
 
     private void FinishIglesia()
     {
-        musicController.CallUnmuteTrack(MusicManager.Instrumentos.Celesta);
-        StartCoroutine(Building("Church"));
+        
+        StartCoroutine(Building("Church", MusicManager.Instrumentos.Celesta)); 
+        //musicController.CallUnmuteTrack(MusicManager.Instrumentos.Celesta);
         Debug.Log("isCollectedLucesIglesia " + isCollectedLucesIglesia);
     }
     private void FinishMolino()
     {
-        musicController.CallUnmuteTrack(MusicManager.Instrumentos.PercInicial);
-        StartCoroutine(Building("Windmill"));
+       
+        StartCoroutine(Building("Windmill", MusicManager.Instrumentos.PercInicial));
+        //musicController.CallUnmuteTrack(MusicManager.Instrumentos.PercInicial);
         Debug.Log("isCollectedLucesMolino " + isCollectedLucesMolino);
     }
     private void FinishCasa()
     {
-        musicController.CallAudioFinal();
-        StartCoroutine(Building("House"));
+        
+        StartCoroutine(Building("House",MusicManager.Instrumentos.Pads));
+       // musicController.CallAudioFinal();
         Debug.Log("isCollectedLucesCasa " + isCollectedLucesCasa);
     }
 
     // TimeOut
-    IEnumerator Building(String build)
+    IEnumerator Building(String build, MusicManager.Instrumentos posInst )
     {
         //Print the time of when the function is first called.
         Debug.Log("Started Coroutine at timestamp : " + Time.time);
@@ -157,6 +161,8 @@ public class GameManager : MonoBehaviour
 
         // Cambia de Ruinas
         ActivateBuildings(GameObject.FindGameObjectWithTag(build));
+        musicController.CallUnmuteTrack(posInst);
+        
 
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);

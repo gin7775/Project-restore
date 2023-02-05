@@ -118,7 +118,7 @@ public class MusicManager : MonoBehaviour
                 tracks[audio].mute = false;
                 break;
             case Instrumentos.Pads:
-                tracks[audio].mute = false;
+                MuteDemute();
                 break;
             default:
                 break;
