@@ -146,6 +146,7 @@ public class GameManager : MonoBehaviour
     {
         
         StartCoroutine(Building("House",MusicManager.Instrumentos.Pads));
+        Endgame();
        // musicController.CallAudioFinal();
         Debug.Log("isCollectedLucesCasa " + isCollectedLucesCasa);
     }
@@ -166,5 +167,11 @@ public class GameManager : MonoBehaviour
 
         //After we have waited 5 seconds print the time again.
         Debug.Log("Finished Coroutine at timestamp : " + Time.time);
+    }
+    public GameObject creditos;
+    public void Endgame()
+    {
+        creditos.SetActive(true);
+
     }
 }
