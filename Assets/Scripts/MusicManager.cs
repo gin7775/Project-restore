@@ -8,6 +8,7 @@ public class MusicManager : MonoBehaviour
     public AudioSource[] tracks;
     public AudioSource wind;
     public AudioSource menufx1;
+    public AudioSource bucleFinal;
     public enum Instrumentos
     {
         Piano, //0
@@ -36,7 +37,7 @@ public class MusicManager : MonoBehaviour
             if (_instance is null)
             {
                 Destroy(value.gameObject);
-                _instance = new MusicManager();
+                //_instance = new MusicManager();
             }
             
         }
@@ -131,6 +132,15 @@ public class MusicManager : MonoBehaviour
         fx = menufx1;
 
         return fx;
+    }
+    public void MuteDemute()
+    {
+        for (int i = 0; i < tracks.Length; i++)
+        {
+            tracks[i].mute = true;
+        }
+        bucleFinal.mute = false;
+
     }
 
 }
