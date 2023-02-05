@@ -16,14 +16,16 @@ public class FuegoFatuo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (deathFire == false)
+        if (deathFire == true)
         {
-            deathFire = true;
+            
             respawnTime -= Time.deltaTime;
             if (respawnTime <= 0)
             {
+                deathFire = false;
                 GameObject toInstantiate = GameObject.Instantiate(childFire, this.transform.position, Quaternion.identity);
                 toInstantiate.transform.SetParent(this.transform);
+             
             }
         }
     }
