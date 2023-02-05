@@ -147,6 +147,7 @@ public class MusicManager : MonoBehaviour
         {
             tracks[i].mute = true;
         }
+        wind.mute = true;
         bucleFinal.mute = false;
 
     }
