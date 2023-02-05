@@ -96,23 +96,23 @@ public class GameManager : MonoBehaviour
 
     private void finishCripta() 
     {
-        musicController.CallUnmuteTrack(MusicManager.Instrumentos.Piano);
+       // musicController.CallUnmuteTrack(MusicManager.Instrumentos.Piano);
         Debug.Log("isCollectedLucesCripta " + isCollectedLucesIglesia);
     }
 
     private void finishIglesia()
     {
-        musicController.CallUnmuteTrack(MusicManager.Instrumentos.Piano);
+       // musicController.CallUnmuteTrack(MusicManager.Instrumentos.Celesta);
         Debug.Log("isCollectedLucesIglesia " + isCollectedLucesIglesia);
     }
     private void finishMolino()
     {
-        musicController.CallUnmuteTrack(MusicManager.Instrumentos.Piano);
+        //musicController.CallUnmuteTrack(MusicManager.Instrumentos.PercInicial);
         Debug.Log("isCollectedLucesMolino " + isCollectedLucesMolino);
     }
     private void finishCasa() //Las casas se construyen todas a la vez, por lo que hay que hacer una lista de casas para reconstruirlas
     {
-        musicController.CallAudioFinal();
+       // musicController.CallAudioFinal();
         Debug.Log("isCollectedLucesCasa " + isCollectedLucesCasa);
     }
 }
