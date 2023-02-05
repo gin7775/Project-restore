@@ -76,14 +76,14 @@ public class MovementCamera : MonoBehaviour
             strafeSpeed = actualHover;
         }
 
-        if (Input.GetKey(KeyCode.Space) && fuegoFatuoContainer >= 0)
+        if (Input.GetKey(KeyCode.Space) && fuegoFatuoContainer > 0)
         {
             forwardSpeed = lowSpeed;
             Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().m_Lens.FieldOfView = Mathf.Lerp(Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().m_Lens.FieldOfView, 50, 0.02f);
 
         }
 
-        if (Input.GetKey(KeyCode.LeftShift) && fuegoFatuoContainer >= 0)
+        if (Input.GetKey(KeyCode.LeftShift) && fuegoFatuoContainer > 0)
         {
             forwardSpeed = highSpeed;
             Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().m_Lens.FieldOfView = Mathf.Lerp(Camera.main.GetComponentInChildren<CinemachineVirtualCamera>().m_Lens.FieldOfView, 70, 0.02f);
