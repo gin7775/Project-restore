@@ -16,9 +16,9 @@ public class FuegoFatuo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (deathFire == true)
+        if (deathFire == false)
         {
-            deathFire = false;
+            deathFire = true;
             respawnTime -= Time.deltaTime;
             if (respawnTime <= 0)
             {
