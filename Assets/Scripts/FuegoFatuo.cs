@@ -25,7 +25,7 @@ public class FuegoFatuo : MonoBehaviour
                 deathFire = false;
                 GameObject toInstantiate = GameObject.Instantiate(childFire, this.transform.position, Quaternion.identity);
                 toInstantiate.transform.SetParent(this.transform);
-             
+                //Debug.log("SPAWN");
             }
         }
     }

@@ -21,6 +21,11 @@ public class MovementCamera : MonoBehaviour
 
     public bool moving = true;
 
+    public float _rotationSpeed = 30f;
+    private CharacterController _controller;    
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +36,9 @@ public class MovementCamera : MonoBehaviour
         lowSpeed = initialSpeed - 5;
         screenCenter.x = Screen.width * .5f;
         screenCenter.y = Screen.height * .5f;
+        _controller = GetComponent<CharacterController>();
+     
+
 
     }
 
@@ -59,13 +67,16 @@ public class MovementCamera : MonoBehaviour
             activeStrafeSpeed = Mathf.Lerp(activeStrafeSpeed, Input.GetAxisRaw("Horizontal") * strafeSpeed, strafeAcceleration * Time.deltaTime);
             activeHoverSpeed = Mathf.Lerp(activeHoverSpeed, Input.GetAxisRaw("Vertical") * hoverSpeed, hoverAcceleration * Time.deltaTime);
 
-            transform.position += transform.forward * forwardSpeed * Time.deltaTime;
-            transform.position += transform.up * activeHoverSpeed * Time.deltaTime;
-            transform.Rotate(Vector3.up, Input.GetAxisRaw("Horizontal") * strafeSpeed * 2 * Time.deltaTime);
+
+            _controller.Move((transform.forward * forwardSpeed + transform.up * activeHoverSpeed) * Time.deltaTime);
+            transform.Rotate(0, Input.GetAxisRaw("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
+
+
+
         }
 
 
-        Debug.DrawRay(caster.transform.position, caster.transform.up * -1 * rayDistance, Color.red);
+Debug.DrawRay(caster.transform.position, caster.transform.up * -1 * rayDistance, Color.red);
 
         if (Physics.Raycast(caster.transform.position, caster.transform.up * -1, out hit, rayDistance))
         {
