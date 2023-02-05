@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2410901917503845359}
+  - component: {fileID: 7186763903016181538}
   m_Layer: 0
   m_Name: Will_O_Wisp
   m_TagString: Untagged
@@ -30,8 +31,23 @@ Transform:
   m_Children:
   - {fileID: 4124602849610371874}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7186763903016181538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2410901917503845356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2588d0fcf8909d44a8774dc7194b08ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childFire: {fileID: 1749849620459001775, guid: 41c73bbfaa6d89646a87b6dbace4eee6, type: 3}
+  deathFire: 0
+  respawnTime: 0
 --- !u!1001 &2410901917138453644
 PrefabInstance:
   m_ObjectHideFlags: 0

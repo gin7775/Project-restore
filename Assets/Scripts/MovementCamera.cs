@@ -113,6 +113,7 @@ public class MovementCamera : MonoBehaviour
             other.transform.position = firePos[fuegoFatuoContainer].position;
             other.transform.rotation = firePos[fuegoFatuoContainer].rotation;
             fatuos[fuegoFatuoContainer] = other.transform;
+
             other.transform.SetParent(firePos[fuegoFatuoContainer]);
             fuegoFatuoContainer++;
 
