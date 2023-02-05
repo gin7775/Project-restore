@@ -8,6 +8,15 @@ TagManager:
   - luzCripta
   - luzIglesia
   - fatuo
+  - MausoleumLights
+  - HousesLights
+  - Mausoleum
+  - Windmill
+  - WindmillLights
+  - Church
+  - ChurchLights
+  - House
+  - luzMolino
   layers:
   - Default
   - TransparentFX

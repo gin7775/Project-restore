@@ -57,6 +57,11 @@ public class GameManager : MonoBehaviour
 
         if (isCollectedLucesIglesia)
         {
+            lucesMolino = ActivateChildCount(inactiveWindmillGameObjects);
+        }
+
+        if (isCollectedLucesMolino)
+        {
             lucesCasa = ActivateChildCount(inactiveHouseGameObjects);
         }
 
@@ -71,7 +76,13 @@ public class GameManager : MonoBehaviour
             isCollectedLucesIglesia = true;
             FinishIglesia();
         }
-        //Hay que meter el molino, las variables creo que están todas.
+
+        if (lucesMolino <= 0 && !isCollectedLucesMolino)
+        {
+            isCollectedLucesMolino = true;
+            FinishMolino();
+        }
+
         if (lucesCasa <= 0 && !isCollectedLucesCasa)
         {
             isCollectedLucesCasa = true;
@@ -110,26 +121,26 @@ public class GameManager : MonoBehaviour
 
     private void FinishCripta() 
     {
-        // musicController.CallUnmuteTrack(MusicManager.Instrumentos.Piano);
+        musicController.CallUnmuteTrack(MusicManager.Instrumentos.Piano);
         ActivateBuildings(GameObject.FindGameObjectWithTag("Mausoleum"));
         Debug.Log("isCollectedLucesCripta " + isCollectedLucesCripta);
     }
 
     private void FinishIglesia()
     {
-        // musicController.CallUnmuteTrack(MusicManager.Instrumentos.Celesta);
+        musicController.CallUnmuteTrack(MusicManager.Instrumentos.Celesta);
         ActivateBuildings(GameObject.FindGameObjectWithTag("Church"));
         Debug.Log("isCollectedLucesIglesia " + isCollectedLucesIglesia);
     }
     private void FinishMolino()
     {
-        //musicController.CallUnmuteTrack(MusicManager.Instrumentos.PercInicial);
+        musicController.CallUnmuteTrack(MusicManager.Instrumentos.PercInicial);
         ActivateBuildings(GameObject.FindGameObjectWithTag("Windmill"));
         Debug.Log("isCollectedLucesMolino " + isCollectedLucesMolino);
     }
-    private void FinishCasa() //Las casas se construyen todas a la vez, por lo que hay que hacer una lista de casas para reconstruirlas
+    private void FinishCasa()
     {
-        // musicController.CallAudioFinal();
+        musicController.CallAudioFinal();
         ActivateBuildings(GameObject.FindGameObjectWithTag("House"));
         Debug.Log("isCollectedLucesCasa " + isCollectedLucesCasa);
     }
