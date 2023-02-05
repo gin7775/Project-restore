@@ -1070,6 +1070,51 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9116980812733606244, guid: 0e229b97af3eb1d4cb0a893a65dc5fe1, type: 3}
+      propertyPath: m_text
+      value: "Gianmarcos Alfonso Bezares\n\nMar\xEDa Rivas Ramos\nRicardo Garcia
+        Ruiz\nGianmarcos Alfonso Bezares\n\nDaniel Adri\xE1n Paniagua Maz\xF3n\nChristian
+        Paniagua Maz\xF3n\n\n\nChristian Paniagua Maz\xF3n\n\nDaniel Adri\xE1n Paniagua
+        Maz\xF3n\n\nMar\xEDa Rivas Ramos"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116980812733606246, guid: 0e229b97af3eb1d4cb0a893a65dc5fe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116980813060321525, guid: 0e229b97af3eb1d4cb0a893a65dc5fe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116980813336900258, guid: 0e229b97af3eb1d4cb0a893a65dc5fe1, type: 3}
+      propertyPath: m_text
+      value: 'Lead Programmer
+
+
+        Programmers
+
+
+
+
+        Music Composer
+
+
+
+        Music
+        Producer
+
+
+        Music Programmer
+
+
+        Interface
+
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9116980813336900260, guid: 0e229b97af3eb1d4cb0a893a65dc5fe1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9116980813383922447, guid: 0e229b97af3eb1d4cb0a893a65dc5fe1, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1160,7 +1205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9116980813383922547, guid: 0e229b97af3eb1d4cb0a893a65dc5fe1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9116980813383922445, guid: 0e229b97af3eb1d4cb0a893a65dc5fe1, type: 3}
