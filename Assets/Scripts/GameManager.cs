@@ -123,26 +123,42 @@ public class GameManager : MonoBehaviour
     private void FinishCripta() 
     {
         musicController.CallUnmuteTrack(MusicManager.Instrumentos.Piano);
-        ActivateBuildings(GameObject.FindGameObjectWithTag("Mausoleum"));
+        StartCoroutine(Building("Mausoleum"));
         Debug.Log("isCollectedLucesCripta " + isCollectedLucesCripta);
     }
 
     private void FinishIglesia()
     {
         musicController.CallUnmuteTrack(MusicManager.Instrumentos.Celesta);
-        ActivateBuildings(GameObject.FindGameObjectWithTag("Church"));
+        StartCoroutine(Building("Church"));
         Debug.Log("isCollectedLucesIglesia " + isCollectedLucesIglesia);
     }
     private void FinishMolino()
     {
         musicController.CallUnmuteTrack(MusicManager.Instrumentos.PercInicial);
-        ActivateBuildings(GameObject.FindGameObjectWithTag("Windmill"));
+        StartCoroutine(Building("Windmill"));
         Debug.Log("isCollectedLucesMolino " + isCollectedLucesMolino);
     }
     private void FinishCasa()
     {
         musicController.CallAudioFinal();
-        ActivateBuildings(GameObject.FindGameObjectWithTag("House"));
+        StartCoroutine(Building("House"));
         Debug.Log("isCollectedLucesCasa " + isCollectedLucesCasa);
+    }
+
+    // TimeOut
+    IEnumerator Building(String build)
+    {
+        //Print the time of when the function is first called.
+        Debug.Log("Started Coroutine at timestamp : " + Time.time);
+
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(5);
+
+        // Cambia de Ruinas
+        ActivateBuildings(GameObject.FindGameObjectWithTag(build));
+
+        //After we have waited 5 seconds print the time again.
+        Debug.Log("Finished Coroutine at timestamp : " + Time.time);
     }
 }
