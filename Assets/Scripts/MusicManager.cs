@@ -9,6 +9,7 @@ public class MusicManager : MonoBehaviour
     public AudioSource wind;
     public AudioSource menufx1;
     public AudioSource bucleFinal;
+    public AudioSource fire, luz,desbloqueo;
     public enum Instrumentos
     {
         Piano, //0
