@@ -24,6 +24,9 @@ public class MusicController : MonoBehaviour
         {
             musicManager = FindObjectOfType<MusicManager>();
             menuFX = musicManager.RecieveMenuFX1();
+            fire = musicManager.fire;
+            luz = musicManager.luz;
+            desbloqueo = musicManager.desbloqueo;
         }
     }
     public void PlayMenuFX()
